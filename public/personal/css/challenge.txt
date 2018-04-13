@@ -1,0 +1,6 @@
+1 Draw picture of STEPLE
+2 Add explanation
+3 Tab to create own version
+4 Free form entry
+5 Populate with presets
+6 Create png for own use and download
