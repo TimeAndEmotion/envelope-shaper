@@ -13,7 +13,9 @@ const parse = require('csv-parse');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected
-let mainWindow
+let mainWindow;
+let currentFileName;
+let currentBacklog = [];
 
 // A function to create the browser window when the app is ready
 function createWindow() {
@@ -95,8 +97,8 @@ function openFile () {
         console.log('No File')
       } else {
         // read the file and send the details to the list
-        var fileName = fileNames[0];
-        fs.readFile(fileName, function (err, data) {
+        currentFileName = fileNames[0];
+        fs.readFile(currentFileName, function (err, data) {
           if (err) return console.error(err);
           parse(data, {comment: '#'}, function(err, output){
             if (err) return console.error(err);
@@ -104,7 +106,8 @@ function openFile () {
             mainWindow.webContents.send('item:clear');
 
             output.forEach(function(row) {
-              // console.log(row[1]);
+              console.log(row);
+              currentBacklog.push(row[0] + ',' + row[1] + ',' + row[2] + ',' + row[3] + '\n');
               mainWindow.webContents.send('item:add', row[1])
             });
           });
@@ -117,23 +120,44 @@ function openFile () {
 function saveFile () {
 
   dialog.showSaveDialog({ filters: [
-
-     { name: 'text', extensions: ['txt'] }
-
+     { name: currentFileName, extensions: ['csv'] }
     ]}, function (fileName) {
 
     if (fileName === undefined) return;
 
-    fs.writeFile(fileName, document.getElementById("editor").value, function (err) {
+    // Need to grab the
 
-     dialog.showMessageBox({ message: "The file has been saved! :-)",
+    if ( currentBacklog.length > 0 ) {
+      // parse currentBacklog to CSV
+      let _content = '';
+      currentBacklog.forEach(function(row) {
+        _content += row;
+      })
 
-      buttons: ["OK"] });
-
-    });
-
+      // write to disk
+      fs.writeFile(fileName, _content, function (err) {
+        dialog.showMessageBox({ message: "The file has been saved! :-)",
+         buttons: ["OK"] });
+       });
+    }
   });
+}
 
+
+//Save File As
+function saveFileAs () {
+
+  dialog.showSaveDialog({ filters: [
+     { name: 'csv', extensions: ['csv'] }
+    ]}, function (fileName) {
+
+    if (fileName === undefined) return;
+
+    fs.writeFile(fileName, currentBacklog.toString(), function (err) {
+     dialog.showMessageBox({ message: "The file has been saved! :-)",
+      buttons: ["OK"] });
+    });
+  });
 }
 
 
