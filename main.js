@@ -113,6 +113,31 @@ function openFile () {
   });
 }
 
+//Save File
+function saveFile () {
+
+  dialog.showSaveDialog({ filters: [
+
+     { name: 'text', extensions: ['txt'] }
+
+    ]}, function (fileName) {
+
+    if (fileName === undefined) return;
+
+    fs.writeFile(fileName, document.getElementById("editor").value, function (err) {
+
+     dialog.showMessageBox({ message: "The file has been saved! :-)",
+
+      buttons: ["OK"] });
+
+    });
+
+  });
+
+}
+
+
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
@@ -133,6 +158,22 @@ const mainMenuTemplate = [
           click(item, focussedWindow) {
             // file open dailog, then read and display in ul
             openFile();
+          }
+        },
+        {
+          label: 'Save backlog',
+          accelerator: process.platform == 'darwin' ? 'Command+S' : 'Ctrl+S',
+          click(item, focussedWindow) {
+            // file open dailog, then read and display in ul
+            saveFile();
+          }
+        },
+        {
+          label: 'Save backlog As',
+          accelerator: process.platform == 'darwin' ? 'Command+A' : 'Ctrl+A',
+          click(item, focussedWindow) {
+            // file open dailog, then read and display in ul
+            saveFileAs();
           }
         },
         {
