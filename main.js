@@ -121,11 +121,13 @@ function saveFile () {
 
   dialog.showSaveDialog({ filters: [
      { name: currentFileName, extensions: ['csv'] }
-    ]}, function (fileName) {
+    ]},
+
+    function (fileName) {
 
     if (fileName === undefined) return;
 
-    // Need to grab the
+    // Need to grab the backlog and make csv. Will convert to json when model is mature
 
     if ( currentBacklog.length > 0 ) {
       // parse currentBacklog to CSV
