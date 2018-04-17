@@ -17,6 +17,8 @@ let mainWindow;
 let currentFileName;
 let currentBacklog = [];
 
+process.env.NODE_ENV = 'development'
+
 // A function to create the browser window when the app is ready
 function createWindow() {
 
@@ -86,6 +88,29 @@ app.on('activate', function() {
         createWindow()
     }
 })
+
+// handle create envelope wondow
+function createEnvelopeWindow() {
+  addWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    title: 'Add shopping list item'
+  })
+
+  addWindow.loadURL(url.format({
+    pathname: path.join(__dirname, './public/personal/envelope.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+  // garbage collection
+  addWindow.on('close', () => {
+    addWindow = null
+  })
+}
+
+//********************/
+// CONTROLLER FuNCTIONS
+//********************/
 
 // open a backlog file from disk. Backlog is in id,description,,story points, complexity
 function openFile () {
@@ -216,8 +241,9 @@ const mainMenuTemplate = [
       submenu: [
         {
           label: 'Add PBI',
+          accelerator: process.platform == 'darwin' ? 'command+B' : 'CTRL+B',
           click() {
-            createAddWindow()
+            createEnvelopeWindow()
           }
         },
         {

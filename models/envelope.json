@@ -1,0 +1,46 @@
+[
+  {
+    "name": "envelope",
+    "description": "test",
+    "story-points": 1,
+    "complexity": 2,
+    "criticality": 1,
+    "duration": 10,
+    "duration-type": "Sprint, Day, Week, etc",
+    "lead-time": 1,
+    "cycle-time": 1,
+    "shape": 1,
+    "scan": [
+      {
+        "x1": 0,
+        "y1": 0,
+        "x2": 200,
+        "y2": 200
+      }
+    ],
+    "design": [
+      {
+        "x1": 200,
+        "y1": 200,
+        "x2": 400,
+        "y2": 100
+      }
+    ],
+    "deliver": [
+      {
+        "x1": 400,
+        "y1": 100,
+        "x2": 600,
+        "y2": 100
+      }
+    ],
+    "value": [
+      {
+        "x1": 600,
+        "y1": 100,
+        "x2": 800,
+        "y2": 0
+      }
+    ]
+  }
+]

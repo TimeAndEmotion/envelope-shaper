@@ -16,17 +16,17 @@
   <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script src="./libraries/jquery.dd.min.js"></script>
 
-  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <!-- <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
   <script language="javascript" src="libraries/p5.dom.js"></script>
   <script language="javascript" src="libraries/p5.sound.js"></script>
-  <script language="javascript" src="libraries/quicksettings.js"></script>
-  <script language="javascript" type="text/javascript" src="./js/box.js"></script>
+  <script language="javascript" src="libraries/quicksettings.js"></script> -->
+  <!-- <script language="javascript" type="text/javascript" src="./js/box.js"></script> -->
 
-  <link rel="stylesheet" type="text/css" href="css/msdropdown/dd.css" />
-  <script language="javascript" type="text/javascript" src="./js/valueButton.js"></script>
-  <script language="javascript" type="text/javascript" src="./js/adsr.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="css/msdropdown/dd.css" /> -->
+  <!-- <script language="javascript" type="text/javascript" src="./js/valueButton.js"></script> -->
+  <!-- <script language="javascript" type="text/javascript" src="./js/adsr.js"></script> -->
 
-  <script language="javascript" type="text/javascript" src="./js/midi-control.js"></script>
+  <!-- <script language="javascript" type="text/javascript" src="./js/midi-control.js"></script> -->
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
@@ -176,191 +176,137 @@
           <li>I am task 5</li>
         </ul>
       </div>
-      <div class="col col-lg-9">
-        <div class="row">
-          <div class="form-group">
-            <div class="col col-xs-8 col-sm-8 col-lg-3">
-              <input id='pbiName' name='pbiName' type="text" class="form-control" placeholder="Statement of intent"></input>
-            </div>
-            <div class="col col-lg-3">
-              <select id="time-criticality" class="form-control">
-                <option value="1">Criticality</option>
-                <option value="2">Must be in sprint</option>
-                <option value="3">Should be in sprint</option>
-                <option value="4">Could be deferred</option>
-                <option value="5">Would if time permits</option>
-              </select>
-            </div>
-            <div class="col col-xs-4 col-sm-4 col-lg-2">
-              <input type="text" id="duration" class="form-control" placeholder="Sprint Duration (days)">
-            </div>
 
-            <div class="col col-lg-4 ">
-              <span>Time & Effort Presets</i>
-                <br>
-                <select id="workProfile" class="form-control, payments">
 
-                  <option value="1" data-image="./images/icons/drum.png" data-description="">Small task</option>
-
-                  <option value="2" data-image="./images/icons/horns.png" data-description="">Leveraged value</option>
-                  <option value="3" data-image="./images/icons/strings.png" data-description="">Sustained job with value</option>
-                  <option value="4" data-image="./images/icons/woodwind.png" data-description="">Design focus. Gentle effort</option>
-
-                  <option value="5" data-image="./images/icons/bass.png">Strategic</option>
-                  <option value="6" data-image="./images/icons/keyboards.png" data-description="">Effort.</option>
-                  <option value="7" data-image="./images/icons/guitar.png" data-description="">Small effort, energetic input?</option>
-
-                  <option selected value="8" data-image="./images/icons/synth-basic.png" data-description="">Default</option>
-                  <option value="9" data-image="./images/icons/synth-lead.png" data-description="">Applied Learning</option>
-                  <option value="10" data-image="./images/icons/synth-pad.png" data-description="">Max Learn </option>
-                  <option value="11" data-image="./images/icons/synth-texture.png" data-description="">Long Scan, sustained eeffort</option>
-
-                </select>
-            </div>
-            </div>
-          </div>
-            <div class="row">
-              <div id="sadv" class="col-xs-6 col-md-6 col-lg-4">
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- App display -->
-
-      </div>
     </div>
   </div>
+</div>
 
-  </div>
+</div>
 
-  <script>
-    let toggleInfo = false;
-    $(document).ready(function () {
-      $("#shapeTable").dataTable();
-      $(".payments").msDropdown({ visibleRows: 4 });
+<script>
+  let toggleInfo = false;
+  $(document).ready(function () {
+    $("#shapeTable").dataTable();
+    $(".payments").msDropdown({ visibleRows: 4 });
+    $("#info").hide();
+  });
+
+  $("#tabs").tabs();
+
+  $(".payments").on('change', function (e) {
+    console.log(this.value);
+    $(".test").text(this.value);
+    //console.log(this.value);
+  });
+
+  $("#the-file-input").change(function () {
+    // will log a FileList object, view gifs below
+    console.log(this.files);
+  });
+
+  // render the image in our view
+  function renderImage(file) {
+
+    // generate a new FileReader object
+    var reader = new FileReader();
+
+    // inject an image with the src url
+    reader.onload = function (event) {
+      the_url = event.target.result
+      $('#some_container_div').html("<img src='" + the_url + "' />")
+    }
+
+    // when the file is read it triggers the onload event above.
+    reader.readAsDataURL(file);
+  }
+
+  // handle input changes
+  $("#the-file-input").change(function () {
+    console.log(this.files)
+
+    // grab the first image in the FileList object and pass it to the function
+    renderImage(this.files[0])
+  });
+
+  $("#btn_info").click(function () {
+    // console.log("i am toggle");
+    toggleInfo = !toggleInfo;
+    if (toggleInfo) {
+      $("#info").show();
+    } else {
       $("#info").hide();
-    });
-
-    $("#tabs").tabs();
-
-    $(".payments").on('change', function (e) {
-      console.log(this.value);
-      $(".test").text(this.value);
-      //console.log(this.value);
-    });
-
-    $("#the-file-input").change(function () {
-      // will log a FileList object, view gifs below
-      console.log(this.files);
-    });
-
-    // render the image in our view
-    function renderImage(file) {
-
-      // generate a new FileReader object
-      var reader = new FileReader();
-
-      // inject an image with the src url
-      reader.onload = function (event) {
-        the_url = event.target.result
-        $('#some_container_div').html("<img src='" + the_url + "' />")
-      }
-
-      // when the file is read it triggers the onload event above.
-      reader.readAsDataURL(file);
     }
+  });
 
-    // handle input changes
-    $("#the-file-input").change(function () {
-      console.log(this.files)
+  $(function () {
 
-      // grab the first image in the FileList object and pass it to the function
-      renderImage(this.files[0])
-    });
-
-    $("#btn_info").click(function () {
-      // console.log("i am toggle");
-      toggleInfo = !toggleInfo;
-      if (toggleInfo) {
-        $("#info").show();
-      } else {
-        $("#info").hide();
-      }
-    });
-
-    $(function () {
-
-    });
+  });
 
 
-  </script>
+</script>
 
 
-  <script>
-  // Interoperation scripts
-    const electron = require('electron');
-    const {ipcRenderer} = electron;
-    const ul = document.querySelector('#backlogItems');
-    const pbiName = document.querySelector('#pbiName');
+<script>
+// Interoperation scripts
+  const electron = require('electron');
+  const {ipcRenderer} = electron;
+  const ul = document.querySelector('#backlogItems');
+  const pbiName = document.querySelector('#pbiName');
 
-    ipcRenderer.on('item:add', function(e, item) {
-      console.log("adding", item);
-      ul.classname="collection"
-      const li = document.createElement('li')
-      li.classname = "collection-item"
-      const itemText = document.createTextNode(item)
-      li.appendChild(itemText)
-      ul.appendChild(li)
-    })
+  ipcRenderer.on('item:add', function(e, item) {
+    console.log("adding", item);
+    ul.classname="collection"
+    const li = document.createElement('li')
+    li.classname = "collection-item"
+    const itemText = document.createTextNode(item)
+    li.appendChild(itemText)
+    ul.appendChild(li)
+  })
 
-    // clear items
-    ipcRenderer.on('item:clear', function(e, item) {
-      console.log("clearing out");
-      ul.innerHTML = '';
-      ul.classname = '';
-    })
+  // clear items
+  ipcRenderer.on('item:clear', function(e, item) {
+    console.log("clearing out");
+    ul.innerHTML = '';
+    ul.classname = '';
+  })
 
-    // remove item
-    ul.addEventListener('dblclick', removeItem);
+  // remove item
+  ul.addEventListener('dblclick', removeItem);
 
-    function removeItem(e) {
-      e.target.remove();
-      if (ul.children == 0) {
-        ul.classname = ''
-      }
+  function removeItem(e) {
+    e.target.remove();
+    if (ul.children == 0) {
+      ul.classname = ''
     }
+  }
 
 
-    ul.addEventListener('click', selectItem);
+  ul.addEventListener('click', selectItem);
 
-    function selectItem(e) {
-      // console.log(e.target);
-      let _name = e.target.innerText;
-      // console.log(_name);
-      document.querySelector('#pbiName').value = _name;
+  function selectItem(e) {
+    // console.log(e.target);
+    let _name = e.target.innerText;
+    // console.log(_name);
+    // document.querySelector('#pbiName').value = _name;
 
-     var selector, elems, makeActive;
+   var selector, elems, makeActive;
 
-      selector = '#backlogItems li';
+    selector = '#backlogItems li';
+    elems = document.querySelectorAll(selector);
+    makeActive = function () {
+        for (var i = 0; i < elems.length; i++)
+            elems[i].classList.remove('active');
+        this.classList.add('active');
+    };
 
-      elems = document.querySelectorAll(selector);
-
-      makeActive = function () {
-          for (var i = 0; i < elems.length; i++)
-              elems[i].classList.remove('active');
-
-          this.classList.add('active');
-      };
-
-      for (var i = 0; i < elems.length; i++)
-          elems[i].addEventListener('mousedown', makeActive);
-      }
-  </script>
+    for (var i = 0; i < elems.length; i++)
+        elems[i].addEventListener('mousedown', makeActive);
+    }
+</script>
 </body>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>
+crossorigin="anonymous"></script>
 
 </html>
