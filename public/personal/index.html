@@ -336,9 +336,9 @@ crossorigin="anonymous"></script>
 <script>
    let dd = `
           <select class="payments" style="width:250px;">
-              <option selected value="0" data-image="./images/blank.png" data-description="">Blank</option>
+              <option selected value="0" data-image="./images/blank.png" data-description="">Zero</option>
               <option value="1" data-image="./images/mallet.png" data-description="">Fast, no value</option>
-              <option value="2" data-image="./images/bass.png">Some Design</option>
+              <option value="2" data-image="./images/bass.png">Some Design medium effort & value</option>
               <option value="3" data-image="./images/keyboards.png" data-description="">Long, no value</option>
               <option value="4" data-image="./images/guitar.png" data-description="">Chore</option>
               <option value="5" data-image="./images/drum.png" data-description="">DevOps Value</option>
@@ -359,15 +359,11 @@ crossorigin="anonymous"></script>
 	$(document).ready(function() {
      // Establish data table to hole backlog
      $("#tblBacklog").dataTable();
-     $("#tblBacklog").visible = false;
+
      // class to provide drop down shapes
 		 $(".payments").msDropdown({visibleRows:4});
  });
 
-//  $("#tblBacklog").onclick( function() {
-//     $("#tblBacklog").dataTable();
-// 		$(".payments").msDropdown({visibleRows:4});
-//  })
 
  $("#tabs").tabs();
 
