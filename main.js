@@ -132,11 +132,12 @@ function openFile () {
 
             output.forEach(function(row) {
               console.log(row);
-              currentBacklog.push(row[0] + ',' + row[1] + ',' + row[2] + ',' + row[3] + '\n');
-              mainWindow.webContents.send('item:add', row[1])
+              currentBacklog.push(row[0] + ',' + row[1] + ',' + row[2] + ',' + row[3] + ',' + row[4] + '\n');
+              mainWindow.webContents.send('item:add', row)
             });
           });
        });
+      //  mainWindow.webContents.send('item:display');
       }
   });
 }

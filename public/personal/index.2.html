@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="scripts/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="./libraries/p5.js"></script>
+  <script language="javascript" src="libraries/p5.dom.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="libraries/jquery.dd.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+  <!--<link rel="stylesheet" type="text/css" href="./css/spacelab.css" />-->
+   <link rel="stylesheet" type="text/css" href="css/msdropdown/dd.css" />
+</head>
+
+
+
+<body class="container">
+
+  <h1>Work Envelopes</h1>
+
+  <!--<button type="button" id="btnInfo" class="btn btn-info"><i>info</i></button>-->
+  <div id="info"   style="padding:10px" >
+    <div class="row">
+      <div class="col col-lg-12 col-sm-12 col-xs-12">
+        <P>
+          We are familiar with work packs. Going forward work envelopes are more realistic for knowledge workers.
+        </P><P>
+          We will take a brief look at the need for and application of knowledge work envelopes.
+        </P>
+        <P>
+          <b>Cognitive Lead Time</b> is the unforeseen and unmanaged effort that goes into learning and application to deliver value.
+
+        It causes delays that affect most projects and value realisation. It is compounded when many people are involved.
+        </P>
+       <P>
+        In order to appreciate <i>cognitive lead time</i> it will help to explain and visualise it.
+       </P>
+       <h4>A quick overview</h4>
+       <P>
+        Lets start where successful teaching stops: the top level of Bloom's taxonomy.
+        </P>
+
+          <img src="./images/bloom.png" width="250"/>
+          <br>
+          <i>Figure 1 - Blooms Taxonomy</i>
+        <P></P>
+        </div>
+        And pick up synthesis in a standard, 4 step, <b>value driven applied learning process</b>.
+        <P></P>
+        <img src = "./images/sddv.png" />
+        <br>
+        <i>Figure 2 - Scan Design Deliver Value [SDDV]</i> (A commercially aware knowledge worker's version of Plan, Do, Check, Act)
+        <P></P>
+
+        <P></P>
+        Technological advances in music from Moog to software synthesis enables shaping of sounds in envelopes. We can apply a similar technique to work envelopes.
+        <P></P>
+        We can map the Attack, Sustain, Decay, Release envelope to <b>Scan, Design, Deliver, Value envelopes</b>.
+        <P></P>
+        <div class="row">
+        <!--<div class="col col-xs-3 col-lg-3">
+               <img src = "./images/adsr_black.png"  width="250" height="150"/>
+              <br>
+              <i>Figure 3.1 - ADSR</i>
+        </div>-->
+        <div class="col col-xs-3 col-lg-3">
+               <img src = "./images/sddv_adsr.png" />
+              <br>
+              <i>Figure 3.2 - SDDV</i>
+        </div>
+        </div>
+       <P>
+           <b>Cognitive Lead Time</b> is the area under the red and orange section of the envelope.
+        </P>
+        <P>
+          This results in work <i>envelopes</i> rather than work packs. It is a truer reflection of many backlogs.
+        </P>
+        <h3>Application to knowledge work</h3>
+
+        <P>
+        By assessing how much work is needed in the <span style="color:red">scan</span> and <span style="color:orange">design</span> sections it is possible to
+        make time for the preliminary tasks then confidently commit to <span style="color:green">delivering</span>  <span style="color:blue">value</span>.
+        </P>
+         <P>
+        Doctors Norman Doidge and Bessel Van Der Kolk, to name two, state that it takes six weeks for neuro-plasticity to take effect and allow people to
+        make changes. Obviously this applies to <b>heavy lift learning</b> more than small scale change. The best teams I worked in had regular look ahead sessions.
+        There are now faster release cycles based on six week periods. In agile terms that is a release every two to three sprints. Of course small updates
+        can be done continuously...as was always the case.
+        </P>
+        <P>
+        Division of labour between design and delivery can affect team level productivity because learning may need to be done by different people. Again the
+        best teams would have one person train in a topic then share their new knowledge with the other members.
+        <P>
+        To protect against automation we should use aesthetics to differentiate us from the coming neuro-mimetic machines. We should use our creative powers and hand over
+        the drudge work to silicon sisypheans. This is the acceptable face of slavery.
+        </P>
+        </P>
+        The mappings below shows instrument type to shape to work envelope. The differentiation between the
+        genres points to different project types. This can be considered as the musical equivalent
+        of <a href="https://en.wikipedia.org/wiki/Shearing_layers" target="_new">shearing</a>
+        as proposed by Frank Duffy then applied to software by <a href="http://imagesrv.gartner.com/products/local-briefing/pdf/analyst-day-march2014/introduction_to_pace-layered_application_strategy.pdf" target="_new">Gartner</a>.
+        <P></P>
+
+        <P></P>
+        <h4>Past - Orchestral: Opera, Symphony, Overture = Waterfall</h4>
+        <table class="table">
+            <thead>
+              <tr>
+              <th>Instrument</th>
+              <th>Shape</th>
+              <th>Work Envelope</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+               <td>Horns</td>
+              <td><img src="./images/horns.png" /></td>
+              <td>More up front work (tuning), little design then delivery and value is complex as it fades</td>
+              </tr>
+               <tr>
+              <td>Strings</td>
+              <td><img src="./images/strings.png" /></td>
+              <td>More up front work (tuning) medium design then delivery and value is complex as it fades</td>
+              </tr>
+               <tr>
+              <td>Woodwind</td>
+              <td><img src="./images/woodwind.png" /></td>
+              <td>More up front work (tuning), a lot of design then delivery and value is complex as it fades</td>
+              </tr>
+              <tr>
+              </tbody>
+          </table>
+        <hr>
+        <h4>Present - Pop: Three minute singles or albums = Agile</h4>
+        <table class="table">
+            <thead>
+              <tr>
+              <th>Instrument</th>
+              <th>Shape</th>
+              <th>Work Envelope</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+              <td>Drum</td>
+              <td><img src="./images/drum.png" /></td>
+              <td>This is a simple piece of work and done easily and provides lasting value. It may be an empathetic directive from above.</td>
+              </tr>
+              <tr>
+              <td>Bass</td>
+              <td><img src="./images/bass.png" /></td>
+              <td>Immediate start (too much too soon?), some design, short delivery, low value</td>
+              </tr>
+              <tr>
+              <tr>
+              <td>Guitar</td>
+              <td><img src="./images/guitar.png" /></td>
+              <td>Has an immediate scan a short period of analysis and then delivery. Value is quickly delivered.</td>
+              </tr>
+              <tr>
+              </tbody>
+          </table>
+
+          <hr>
+          <h4>Future - Synth: Use the studio as an instrument = Generative</h4>
+           <table class="table">
+            <thead>
+              <tr>
+              <th>Instrument</th>
+              <th>Shape</th>
+              <th>Work Envelope</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>Synth Basic</td>
+              <td><img src="./images/synth-basic.png" /></td>
+              <td>Cuts through the noise and provides fast value</td>
+              </tr>
+              <tr>
+              <td>Synth Lead</td>
+              <td><img src="./images/synth-lead.png" /></td>
+              <td>Emulate the percussive instruments</td>
+              </tr>
+              <td>Synth Pad</td>
+              <td><img src="./images/synth-pad.png" /></td>
+              <td>More complex with slow start, design that blends into deliver (a spike?) and delivers rich value</td>
+              </tr>
+              <td>Synth Texture</td>
+              <td><img src="./images/synth-texture.png" /></td>
+              <td>Slow start, detailed design leading to delivery and processed value that can repeat as it fades</td>
+              </tr>
+          <!--</table>-->
+
+
+
+
+
+
+            </tbody>
+        </table>
+      </div>
+
+
+
+    <P>
+
+  </div>
+
+</div>
+
+
+<!--<input id="the-file-input" type="file">-->
+<h3>Simple Examples of work envelopes in a backlog</h3>
+      <P>
+        The table shows 5 user stories. The story, user points and effort are standard: envelopes are added - and can be changed by clicking on them. All columns apply sorting.
+      </P>
+
+
+    <div id="shaper" style="border:1px solid black; padding:10px">
+
+      <table id="shapeTable" class="table" >
+        <thead>
+          <tr>
+            <th>Story</th>
+            <th>Points</th>
+            <th>Size</th>
+            <th>Envelope</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>As an editor viewing a submission, I want the system to clearly display the version I am viewing through a clear numbering/versioning system.</td>
+            <td>30</td>
+            <td>50</td>
+            <td>
+              <select id="payments1" class="payments" style="width:250px;">
+                  <option value="1" data-image="./images/mallet.png" data-description="">Mallet</option>
+                  <option value="2" data-image="./images/bass.png">Bass</option>
+                  <option value="3" data-image="./images/keyboards.png" data-description="">keyboards</option>
+                  <option value="4" data-image="./images/guitar.png" data-description="">Guitar</option>
+                  <option selected value="5" data-image="./images/drum.png" data-description="">Drum</option>
+
+                  <option value="6" data-image="./images/horns.png" data-description="">Horns</option>
+                  <option value="7" data-image="./images/strings.png" data-description="">Strings</option>
+                  <option value="8" data-image="./images/woodwind.png" data-description="">Woodwind</option>
+
+                  <option value="9" data-image="./images/synth-basic.png" data-description="">Synth basic</option>
+                  <option value="10" data-image="./images/synth-lead.png" data-description="">Synth Lead</option>
+                  <option value="11" data-image="./images/synth-pad.png" data-description="">Synth Pad</option>
+                  <option value="12" data-image="./images/synth-texture.png" data-description="">synth Texture</option>
+
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>As a journal representative, I want to be able to send a submission back to an author to make requested changes.</td>
+            <td>25</td>
+            <td>30</td>
+            <td>
+              <select id="payments2" class="payments" style="width:250px;">
+                  <option value="1" data-image="./images/mallet.png" data-description="">Mallet</option>
+                  <option value="2" data-image="./images/bass.png">Bass</option>
+                  <option value="3" data-image="./images/keyboards.png" data-description="">keyboards</option>
+                  <option selected value="4" data-image="./images/guitar.png" data-description="">Guitar</option>
+                  <option value="5" data-image="./images/drum.png" data-description="">Drum</option>
+
+                  <option value="6" data-image="./images/horns.png" data-description="">Horns</option>
+                  <option value="7" data-image="./images/strings.png" data-description="">Strings</option>
+                  <option value="8" data-image="./images/woodwind.png" data-description="">Woodwind</option>
+
+                  <option value="9" data-image="./images/synth-basic.png" data-description="">Synth basic</option>
+                  <option value="10" data-image="./images/synth-lead.png" data-description="">Synth Lead</option>
+                  <option value="11" data-image="./images/synth-pad.png" data-description="">Synth Pad</option>
+                  <option value="12" data-image="./images/synth-texture.png" data-description="">synth Texture</option>
+
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>As an Author I want to be able to decline to revise my manuscript at anytime including after I have already agreed to revise.</td>
+            <td>65</td>
+            <td>20</td>
+            <td>
+              <select id="payments3" class="payments" style="width:250px;">
+                  <option value="1" data-image="./images/mallet.png" data-description="">Mallet</option>
+                  <option value="2" data-image="./images/bass.png">Bass</option>
+                  <option value="3" data-image="./images/keyboards.png" data-description="">keyboards</option>
+                  <option value="4" data-image="./images/guitar.png" data-description="">Guitar</option>
+                  <option value="5" data-image="./images/drum.png" data-description="">Drum</option>
+
+                  <option value="6" data-image="./images/horns.png" data-description="">Horns</option>
+                  <option value="7" data-image="./images/strings.png" data-description="">Strings</option>
+                  <option value="8" data-image="./images/woodwind.png" data-description="">Woodwind</option>
+
+                  <option value="9" data-image="./images/synth-basic.png" data-description="">Synth basic</option>
+                  <option value="10" data-image="./images/synth-lead.png" data-description="">Synth Lead</option>
+                  <option value="11" data-image="./images/synth-pad.png" data-description="">Synth Pad</option>
+                  <option selected value="12" data-image="./images/synth-texture.png" data-description="">synth Texture</option>
+
+              </select>
+            </td>
+          </tr>
+         <tr>
+            <td>As a corresponding author, I want to validate, check and and confirm that my revision is suitable for submission.</td>
+            <td>12</td>
+            <td>5</td>
+            <td>
+              <select id="payments4" class="payments" name="payments" style="width:250px;">
+                  <option value="1" data-image="./images/mallet.png" data-description="">Mallet</option>
+                  <option value="2" data-image="./images/bass.png">Bass</option>
+                  <option value="3" data-image="./images/keyboards.png" data-description="">keyboards</option>
+                  <option value="4" data-image="./images/guitar.png" data-description="">Guitar</option>
+                  <option value="5" data-image="./images/drum.png" data-description="">Drum</option>
+
+                  <option value="6" data-image="./images/horns.png" data-description="">Horns</option>
+                  <option value="7" data-image="./images/strings.png" data-description="">Strings</option>
+                  <option value="8" data-image="./images/woodwind.png" data-description="">Woodwind</option>
+
+                  <option selected value="9" data-image="./images/synth-basic.png" data-description="">Synth basic</option>
+                  <option value="10" data-image="./images/synth-lead.png" data-description="">Synth Lead</option>
+                  <option value="11" data-image="./images/synth-pad.png" data-description="">Synth Pad</option>
+                  <option value="12" data-image="./images/synth-texture.png" data-description="">synth Texture</option>
+
+                </select>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>As an admin viewing a submission, I want the system to clearly display the version I am viewing through a clear numbering/versioning system.</td>
+              <td>80</td>
+              <td>40</td>
+              <td>
+                <select id="payments5" class="payments" name="payments" style="width:250px;">
+                  <option value="1" data-image="./images/mallet.png" data-description="">Mallet</option>
+                  <option value="2" data-image="./images/bass.png">Bass</option>
+                  <option value="3" data-image="./images/keyboards.png" data-description="">keyboards</option>
+                  <option value="4" data-image="./images/guitar.png" data-description="">Guitar</option>
+                  <option value="5" data-image="./images/drum.png" data-description="">Drum</option>
+
+                  <option value="6" data-image="./images/horns.png" data-description="">Horns</option>
+                  <option value="7" data-image="./images/strings.png" data-description="">Strings</option>
+                  <option selected value="8" data-image="./images/woodwind.png" data-description="">Woodwind</option>
+
+                  <option value="9" data-image="./images/synth-basic.png" data-description="">Synth basic</option>
+                  <option value="10" data-image="./images/synth-lead.png" data-description="">Synth Lead</option>
+                  <option value="11" data-image="./images/synth-pad.png" data-description="">Synth Pad</option>
+                  <option value="12" data-image="./images/synth-texture.png" data-description="">synth Texture</option>
+
+                </select>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <P></P>
+    <h3>So What?</h3>
+      <P></P>
+      So What is always a good question.
+      <P></P>
+      Riffing on the musical metphor - So What? is also seminal tune by Miles Davis. It is the opening track on Kind of Blue, a 1959 album that evolved Jazz.
+      <P></P>
+      You may not like Jazz - That is fine. Few people like all genres of music. People have different preferences. It is similar to biases regarding fashions and fads of management methods.
+      <P></P>
+      We do, however, need to recognise that work, like music, evolves as organisations respond to external conditions. Those fads and fashions affect us as workers.
+      <P></P>
+      Learning is a key resource now. More so than when manufacturing was the main commercial paradigm.
+      <P></P>
+      This way of visualising work helps identify cognitive lead time and manage it using the appropriate learning. Sampling from open repositories is a common way of learning that Bloom did not foresee.
+      <P></P>
+      The Scan Design Deliver Value cycle fosters smart creativity and differentiates humans from automata. Are you a listener, player, composer or conductor in the world of work?
+      <P></P>
+      Sensible organisations will reskill their staff to be smart creative players who apply learning and hand off drudge jobs to automation.
+      <P></P>
+      If you find this visualisation approach interesting try the <a href="http://comscientia.com/blocs/sketches/cognitive-envelope/index.adsr.html" target="_blank">beta modeller.</a>
+
+      <P></P>
+      Once you are familiar with the process try <a href="http://comscientia.com/blocs/sketches/cognitive-envelope/index.rugby.html" target="_blank">SCRUM software development process</a> with "value in the backs".
+      <P></P>
+<script type="text/javascript">
+   var toggleInfo = false;
+ $(document).ready(function() {
+
+    $("#shapeTable").dataTable();
+    $(".payments").msDropdown({visibleRows:4});
+ });
+
+  $("#the-file-input").change(function() {
+      // will log a FileList object, view gifs below
+      console.log(this.files);
+  });
+
+  // render the image in our view
+function renderImage(file) {
+
+  // generate a new FileReader object
+  var reader = new FileReader();
+
+  // inject an image with the src url
+  reader.onload = function(event) {
+    the_url = event.target.result
+    $('#some_container_div').html("<img src='" + the_url + "' />")
+  }
+
+  // when the file is read it triggers the onload event above.
+  reader.readAsDataURL(file);
+}
+
+// handle input changes
+$("#the-file-input").change(function() {
+    console.log(this.files)
+
+    // grab the first image in the FileList object and pass it to the function
+    renderImage(this.files[0])
+});
+
+$("#btnInfo").click(function() {
+  toggleInfo = !toggleInfo;
+  if (toggleInfo) {
+    $("#info").show();
+  } else {
+    $("#info").hide();
+  }
+});
+
+// build a table to show a product backlog
+function buildTable() {
+
+
+
+};
+</script>
+
+</body>
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+</html>
