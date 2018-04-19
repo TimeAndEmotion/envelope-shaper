@@ -16,18 +16,7 @@
   <script src="./libraries/jquery.dd.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 
-
-  <!-- <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <script language="javascript" src="libraries/p5.dom.js"></script>
-  <script language="javascript" src="libraries/p5.sound.js"></script> -->
   <script language="javascript" src="libraries/quicksettings.js"></script>
-  <!-- <script language="javascript" type="text/javascript" src="./js/box.js"></script> -->
-
-  <!-- <link rel="stylesheet" type="text/css" href="css/msdropdown/dd.css" /> -->
-  <!-- <script language="javascript" type="text/javascript" src="./js/valueButton.js"></script> -->
-  <!-- <script language="javascript" type="text/javascript" src="./js/adsr.js"></script> -->
-
-  <!-- <script language="javascript" type="text/javascript" src="./js/midi-control.js"></script> -->
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
@@ -39,7 +28,15 @@
     li.active {
       color: red;
     }
+    #drag-file {
+      background-color: blue;
+      color:white;
+      text-align: center;
+      width:800px;
+      height:50px;
+    }
   </style>
+
 </head>
 
 
@@ -166,6 +163,10 @@
     <P></P>
 
     <!-- Start of app -->
+    <div id="drag-file">
+      <p>Drag your files here</p>
+    </div>
+
     <div class="row">
 
 
@@ -279,33 +280,21 @@
     data = [ id, desc, priority, storyPoints, complexity, dd ];
 
     console.log(data);
-    $("#tblBacklog").DataTable().row.add(data).rows().invalidate().draw();
+    $("#tblBacklog").DataTable().row.add(data).rows().draw();
 
     $(".payments").msDropdown({visibleRows:4});
 
-    $("#tblBacklog").visible = true;
+    // $("#tblBacklog").visible = true;
 
     });
 
   // clear items
   ipcRenderer.on('item:clear', function(e, item) {
     console.log("clearing out");
-    ul.innerHTML = '';
-    ul.classname = '';
+    // set table contents to zero rows
   })
 
-  // remove item
-  ul.addEventListener('dblclick', removeItem);
 
-  function removeItem(e) {
-    e.target.remove();
-    if (ul.children == 0) {
-      ul.classname = ''
-    }
-  }
-
-
-  ul.addEventListener('click', selectItem);
 
   function selectItem(e) {
     // console.log(e.target);
@@ -334,9 +323,10 @@ crossorigin="anonymous"></script>
 
 
 <script>
+   // Using JQuery for nostalgic reasons!
    let dd = `
           <select class="payments" style="width:250px;">
-              <option selected value="0" data-image="./images/blank.png" data-description="">Zero</option>
+              <option selected value="0" data-image="./images/blank.png" data-description=""></option>
               <option value="1" data-image="./images/mallet.png" data-description="">Fast, no value</option>
               <option value="2" data-image="./images/bass.png">Some Design medium effort & value</option>
               <option value="3" data-image="./images/keyboards.png" data-description="">Long, no value</option>
@@ -414,7 +404,35 @@ $("#btnInfo").click(function() {
 $( function() {
 
  } );
+</script>
 
+<script>
+  // Drag and drop functions
+  (function () {
+      var holder = document.getElementById('drag-file');
 
+      holder.ondragover = () => {
+          return false;
+      };
+      holder.ondragleave = () => {
+          return false;
+      };
+
+      holder.ondragend = () => {
+          return false;
+      };
+
+      holder.ondrop = (e) => {
+          e.preventDefault();
+
+          for (let f of e.dataTransfer.files) {
+              console.log('File(s) you dragged here: ', f.path)
+              ipcRenderer.send("openFile", f.path.toString())
+              // ipcRenderer.send('item:add', item)
+          }
+
+          return false;
+      };
+  })();
 </script>
 </html>

@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu, dialog } = require('electron')
+const { app, BrowserWindow, Menu, dialog, ipcMain } = require('electron')
 // var remote = require('remote');
 // var dialog = remote.require('dialog');
 
@@ -141,6 +141,38 @@ function openFile () {
       }
   });
 }
+
+ipcMain.on('openFile', function(e, fileName) {
+  fileOpen(fileName);
+  console.log("Going to open " + fileName);
+  // mainWindow.webContents.send('item:add', item)
+  // addWindow.close()
+})
+
+function fileOpen(fileName) {
+  if (fileName === undefined) {
+    console.log('No File')
+  } else {
+    // read the file and send the details to the list
+    currentFileName = fileName;
+    fs.readFile(currentFileName, function (err, data) {
+      if (err) return console.error(err);
+      parse(data, {comment: '#'}, function(err, output){
+        if (err) return console.error(err);
+        // ready to paste new items from file
+        mainWindow.webContents.send('item:clear');
+
+        output.forEach(function(row) {
+          console.log(row);
+          currentBacklog.push(row[0] + ',' + row[1] + ',' + row[2] + ',' + row[3] + ',' + row[4] + '\n');
+          mainWindow.webContents.send('item:add', row)
+        });
+      });
+   });
+  //  mainWindow.webContents.send('item:display');
+  }
+};
+
 
 //Save File
 function saveFile () {
