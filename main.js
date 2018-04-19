@@ -17,7 +17,7 @@ let mainWindow;
 let currentFileName;
 let currentBacklog = [];
 
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 
 // A function to create the browser window when the app is ready
 function createWindow() {
