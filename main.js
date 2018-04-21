@@ -35,7 +35,7 @@ function createWindow() {
 
     // Load the index.html of the app
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'public/personal', 'index.html'),
+        pathname: path.join(__dirname, 'index.html'),
         protocol: 'file:',
         slashes: true
     }))
@@ -60,7 +60,7 @@ app.on('ready', () => {
     mainWindow = new BrowserWindow({})
 
     mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, 'public/personal', 'index.html'),
+      pathname: path.join(__dirname, 'index.html'),
       protocol: 'file:',
       slashes: true
     }))
@@ -98,7 +98,7 @@ function createEnvelopeWindow() {
   })
 
   addWindow.loadURL(url.format({
-    pathname: path.join(__dirname, './public/personal/envelope.html'),
+    pathname: path.join(__dirname, './envelope.html'),
     protocol: 'file:',
     slashes: true
   }))
