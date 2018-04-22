@@ -260,14 +260,6 @@
   const pbiName = document.querySelector('#pbiName');
 
   ipcRenderer.on('item:add', function(e, item) {
-    // console.log("adding", item);
-    // ul.classname="collection"
-    // const li = document.createElement('li')
-    // li.classname = "collection-item"
-    // const itemText = document.createTextNode(item)
-    // li.appendChild(itemText)
-    // ul.appendChild(li)
-
 
     let id = item[0];
     let desc = item[1];
