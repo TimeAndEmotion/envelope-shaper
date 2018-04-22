@@ -174,17 +174,15 @@
         <thead>
           <th>Id</th>
           <th>Description</th>
+          <th>Profile</th>
+          <th>Complexity</th>
           <th>Priority</th>
           <th>Story Points</th>
-          <th>Complexity</th>
-          <th>Shape</th>
         </thead>
         <tbody>
 
         </tbody>
       </table>
-
-
     </div>
   </div>
 </div>
@@ -277,12 +275,12 @@
     let storyPoints = item[3];
     let complexity = item[4];
 
-    data = [ id, desc, priority, storyPoints, complexity, dd ];
+    data = [ id, desc, dd,  complexity, priority, storyPoints];
 
     console.log(data);
     $("#tblBacklog").DataTable().row.add(data).rows().draw();
 
-    $(".payments").msDropdown({visibleRows:4});
+    $(".payments").msDropdown({visibleRows:13});
 
     // $("#tblBacklog").visible = true;
 
@@ -348,10 +346,12 @@ crossorigin="anonymous"></script>
 
 	$(document).ready(function() {
      // Establish data table to hole backlog
-     $("#tblBacklog").dataTable();
+     $("#tblBacklog").dataTable({
+       "pageLength": 50
+      });
 
      // class to provide drop down shapes
-		 $(".payments").msDropdown({visibleRows:4});
+		 $(".payments").msDropdown({visibleRows:13});
  });
 
 
