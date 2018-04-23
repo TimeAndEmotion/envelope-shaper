@@ -20,6 +20,7 @@
           "type": "chrome",
           "request": "attach",
           "port": 9223,
+          "sourceMaps": true,
           "webRoot": "${workspaceFolder}",
           "timeout": 30000
       }
