@@ -359,24 +359,12 @@ crossorigin="anonymous"></script>
       ],
 
       'responsive': true
-   });
+      });
 
-   $('#tblBacklog tbody').on('change','td', function(e) {
-    var data = $('#tblBacklog').DataTable().$('input, select').serialize();
-    console.log("Data from change : ", data)
-    //  var _cell = $(this);
-    //  console.log(_cell);
-    //  alert(_cell.toString() );
-   });
-
-   // Update original input/select on change in child row
-  //  $('#tblBacklog tbody').on('keyup change', 'td', function(e){
-  //      var $el = $(this);
-  //      var rowIdx = $el.closest('ul').data('dtr-index');
-  //      var colIdx = $el.closest('li').data('dtr-index');
-  //      var _cell = $el[0].childNodes[0];
-  //      console.log("I am seeking ", _cell.innerHTML);
-  //  });
+      $('#tblBacklog tbody').on('change','td', function(e) {
+        var data = $('#tblBacklog').DataTable().$('input, select').serialize();
+        console.log("Data from change : ", data)
+      });
 
      $("#btnTableSave").on('click', function(e) {
         var data = $('#tblBacklog').DataTable().$('input, select').serialize();
