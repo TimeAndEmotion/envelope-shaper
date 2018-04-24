@@ -269,7 +269,7 @@
     let desc = item[1];
     let priority = item[2];
     let storyPoints = item[3];
-    let complexity = item[4];
+    let complexity = 0;//%item[4];
 
     data = [ id,
               desc,
@@ -361,45 +361,28 @@ crossorigin="anonymous"></script>
       'responsive': true
    });
 
-   $('#tblBacklog tbody').on('click','td', function(e) {
-     var _cell = $(this);
-     console.log(_cell);
+   $('#tblBacklog tbody').on('change','td', function(e) {
+    var data = $('#tblBacklog').DataTable().$('input, select').serialize();
+    console.log("Data from change : ", data)
+    //  var _cell = $(this);
+    //  console.log(_cell);
     //  alert(_cell.toString() );
    });
 
    // Update original input/select on change in child row
-   $('#tblBacklog tbody').on('keyup change', 'td', function(e){
-       var $el = $(this);
-       var rowIdx = $el.closest('ul').data('dtr-index');
-       var colIdx = $el.closest('li').data('dtr-index');
-       var _cell = $el[0].childNodes[0];
-       console.log("I am seeking ", _cell.innerHTML);
-      //  $el.data(_cell).draw();
-      //  $("#tblBacklog").DataTable().draw();
-      //  $('input, select, textarea', $el).val($el.val());
-      //  if($el.is(':checked')){ $('input', cell).prop('checked', true); }
-      //  $(this).draw();
-   });
+  //  $('#tblBacklog tbody').on('keyup change', 'td', function(e){
+  //      var $el = $(this);
+  //      var rowIdx = $el.closest('ul').data('dtr-index');
+  //      var colIdx = $el.closest('li').data('dtr-index');
+  //      var _cell = $el[0].childNodes[0];
+  //      console.log("I am seeking ", _cell.innerHTML);
+  //  });
 
      $("#btnTableSave").on('click', function(e) {
         var data = $('#tblBacklog').DataTable().$('input, select').serialize();
-        // data = $("#tblBacklog").DataTable().rows().data();
         console.log("Data: ", data)
-        // alert(data);
-
-        // for (let i = 0;  i < data.length; i++ ) {
-        //   let row = data[i];
-        //   let id = row[0];
-        //   let desc = row[1];
-        //   let profile = row[2];
-        //   let complexity = row[3];
-        //   let priority = row[4];
-        //   let points = row[5];
-        //   console.log(id, desc, profile, complexity, priority, points);
-        // }
-
      });
-        // return false;
+        return false;
     } );
 
     // class to provide drop down shapes
