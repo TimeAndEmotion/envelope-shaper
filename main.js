@@ -153,6 +153,10 @@ function fileOpen(fileName) {
   if (fileName === undefined) {
     console.log('No File')
   } else {
+
+    // copy the current file to the temporary working file
+    // createTempFile();
+
     // read the file and send the details to the list
     currentFileName = fileName;
     fs.readFile(currentFileName, function (err, data) {
@@ -174,7 +178,20 @@ function fileOpen(fileName) {
 };
 
 
-//Save File
+// Create a working file on the filesystem. It will hold updates for every field change
+function createTempFile() {
+  // write to disk
+  fs.writeFile("backlog.tmp", _content, function (err) {
+
+  });
+}
+
+// Serialise data every time an update is made and write to the temp file
+ipcMain.on("update:file", function(e) {
+
+});
+
+//Save File - Menu command
 function saveFile () {
 
   dialog.showSaveDialog({ filters: [

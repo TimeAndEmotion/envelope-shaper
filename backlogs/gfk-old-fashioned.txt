@@ -1,0 +1,32 @@
+Release Notes in Insight
+Stretch Objective: Improve PPT export - vertical pagination
+Enable export of the tables (116/101) report
+Provide direct access to Collections
+Re-use panelmarket figures for all clients in one country
+Reduce time needed to process the data  (FTP->AS)
+**Scale up RS from 200 to 400 clients (Wave 4)
+Enable additional exclusivity handling "Agg to TB&Excl" to rollout furhter countries 
+Migrate MediaMarkt and Saturn clients to NeoLite
+Fair Share
+Replace full year by 3 rolling months
+Implement Monitoring - follow up
+Clean up AS clusters to enable efficient data storage
+Evaluate and document KPIs needed to be monitored
+Optimize BI Node Configuration
+Evaluation Meta Data Model Decoupling from StarTrack
+Job Execution Environment (JEE) Infrastructure Decoupling from StarTrack
+Replace MDM master data load by DWH master data load
+Reporting Repository API is downward compatible
+Replace Aerospike client copy in QueryService with library import
+Upgrade WildFly 12
+BI CI/CD pipeline
+Make Insight UI development more independent of the data supply 
+Security - Latest OS and application security patches are applied
+Security - Evaluation if applications configured according to application specific secure configuration guidelines
+Rename Reporting Repository context tables
+Provide Feature and Feature Values for KDS 
+Establish confirmed layer (excl. UI) to store the rules
+Stretch Objective: Enable automatic weekly processing of the content changes
+Stretch Objective: Conduct technical preparation for KDS
+Communicate and apply CL rules
+Enable Definition of CL rules via UI
